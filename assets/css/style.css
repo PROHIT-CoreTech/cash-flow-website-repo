@@ -457,17 +457,18 @@ footer a:hover {
 
 .hero-slider-track {
   display: flex;
-  width: 200%;
-  animation: slideBanner 12s infinite alternate ease-in-out;
+  width: 300%;
+  animation: slideBanner 12s infinite ease-in-out;
 }
 
 .hero-slide {
-  width: 50%;
+  width: 33.33333%;
 }
 
 @keyframes slideBanner {
   0%, 40% { transform: translateX(0); }
-  60%, 100% { transform: translateX(-50%); }
+  50%, 90% { transform: translateX(-33.33333%); }
+  100% { transform: translateX(-66.66666%); }
 }
 
 .building-img {
