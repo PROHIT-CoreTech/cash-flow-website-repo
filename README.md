@@ -31,5 +31,4 @@ If you want to test the site via a local server (to avoid any local file protoco
 - `about.html`: Information about the company and its mission.
 - `services.html`: A breakdown of the consulting and development services offered.
 - `contact.html`: Contact information and location.
-- `privacy-policy.html`: Legal terms and privacy guidelines.
 - `assets/css/style.css`: The global stylesheet containing all modern UI variables, layouts, and animations.
