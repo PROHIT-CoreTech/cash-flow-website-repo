@@ -4,27 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Core script to initialize global handlers
     console.log('FinFunds core script loaded securely.');
 
-    // WhatsApp Form Submission Handler
-    const whatsappForm = document.getElementById('whatsappForm');
-    if (whatsappForm) {
-        whatsappForm.addEventListener('submit', function(e) {
+    // Enquiry Form Submission Handler (Email)
+    const enquiryForm = document.getElementById('enquiryForm');
+    if (enquiryForm) {
+        enquiryForm.addEventListener('submit', function(e) {
             e.preventDefault(); // Prevent page reload
             
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
-            // Format the WhatsApp message text
-            const text = `*New Enquiry*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+            // Format the email subject and body
+            const subject = encodeURIComponent(`New Website Enquiry from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
             
-            // Encode the text for the URL
-            const encodedText = encodeURIComponent(text);
+            // Define the recipient emails
+            const recipients = "naresh@cashflowsolutions.in,sushil@cashflowsolutions.in,amish@cashflowsolutions.in";
             
-            // Use the WhatsApp API with the provided number (with country code +91)
-            const whatsappUrl = `https://wa.me/919773969033?text=${encodedText}`;
-            
-            // Redirect the user to WhatsApp
-            window.open(whatsappUrl, '_blank');
+            // Redirect the user to their default email client
+            const mailtoUrl = `mailto:${recipients}?subject=${subject}&body=${body}`;
+            window.location.href = mailtoUrl;
         });
     }
 });
