@@ -160,7 +160,7 @@ h1, h2, h3, h4 {
 
 /* Sections & Grid */
 .info-section {
-  margin: 5rem 0;
+  margin: 6rem 0;
 }
 
 .info-section h2 {
@@ -188,7 +188,7 @@ h1, h2, h3, h4 {
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: 3rem;
 }
 
 @media (min-width: 768px) {
@@ -200,7 +200,7 @@ h1, h2, h3, h4 {
 /* Cards */
 .card {
   background: var(--bg-card);
-  padding: 2.5rem;
+  padding: 3rem;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-subtle);
@@ -232,9 +232,10 @@ h1, h2, h3, h4 {
 }
 
 .card h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-top: 0;
   margin-bottom: 1.5rem;
+  color: var(--primary-blue);
 }
 
 ul {
@@ -530,7 +531,7 @@ footer a:hover {
 .grid-3 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: 3rem;
 }
 
 @media (min-width: 768px) {
