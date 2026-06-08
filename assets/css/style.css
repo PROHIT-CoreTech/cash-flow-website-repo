@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Realvalue Inspired Colors */
+  /* Cashflow Solutions Inspired Colors */
   --primary-blue: #0274be;
   --primary-blue-hover: #025a94;
   --dark-slate: #1e293b;
@@ -525,3 +525,114 @@ footer a:hover {
     transform: none;
   }
 }
+
+/* Custom Grid for 3 Columns */
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Profile Cards Styling */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-placeholder {
+  width: 120px;
+  height: 120px;
+  background-color: var(--border-subtle);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  background-image: linear-gradient(135deg, var(--border-subtle) 25%, #f1f5f9 25%, #f1f5f9 50%, var(--border-subtle) 50%, var(--border-subtle) 75%, #f1f5f9 75%, #f1f5f9 100%);
+  background-size: 20px 20px;
+  border: 4px solid var(--bg-card);
+  box-shadow: var(--shadow-md);
+}
+
+.profile-card h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.4rem;
+  color: var(--primary-blue);
+}
+
+.profile-card .role {
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-info {
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  background: var(--bg-page);
+  padding: 1.25rem;
+  border-radius: var(--border-radius-md);
+  border-left: 3px solid var(--primary-blue);
+}
+
+.profile-info p {
+  margin-bottom: 0.75rem;
+}
+
+.profile-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Icon Grid for Sub-Products */
+.sub-products {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.sub-products strong {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--dark-slate);
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+}
+
+.icon-grid li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.icon-grid li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--primary-blue);
+  font-size: 0.8rem;
+}
+
