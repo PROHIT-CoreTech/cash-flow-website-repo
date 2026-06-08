@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Enquiry Form Submission Handler (Web3Forms API)
     const enquiryForm = document.getElementById('enquiryForm');
+    const formResult = document.getElementById('formResult');
+
     if (enquiryForm) {
         enquiryForm.addEventListener('submit', function(e) {
             e.preventDefault(); // Prevent page reload
@@ -14,30 +16,56 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = button.innerHTML;
             button.innerHTML = "Sending...";
             button.disabled = true;
+            if(formResult) {
+                formResult.innerHTML = "Please wait...";
+                formResult.style.color = "var(--text-muted)";
+            }
             
             const formData = new FormData(enquiryForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
             
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
             })
             .then(async (response) => {
-                let json = await response.json();
+                let jsonResponse = await response.json();
                 if (response.status === 200) {
-                    alert("Thank you! Your enquiry has been sent successfully.");
+                    if(formResult) {
+                        formResult.innerHTML = "Thank you! Your enquiry has been sent successfully.";
+                        formResult.style.color = "green";
+                    }
                     enquiryForm.reset();
                 } else {
                     console.error(response);
-                    alert("Something went wrong! Please try again later.");
+                    if(formResult) {
+                        formResult.innerHTML = "Something went wrong! Please try again later.";
+                        formResult.style.color = "red";
+                    }
                 }
             })
             .catch(error => {
                 console.error(error);
-                alert("An error occurred. Please check your connection and try again.");
+                if(formResult) {
+                    formResult.innerHTML = "An error occurred. Please check your connection.";
+                    formResult.style.color = "red";
+                }
             })
             .finally(() => {
                 button.innerHTML = originalText;
                 button.disabled = false;
+                
+                // Clear the success message after 5 seconds
+                setTimeout(() => {
+                    if(formResult) {
+                        formResult.innerHTML = "";
+                    }
+                }, 5000);
             });
         });
     }
