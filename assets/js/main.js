@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
             
             // Define the recipient emails
-            const recipients = "naresh@cashflowsolutions.in,sushil@cashflowsolutions.in,amish@cashflowsolutions.in";
+            const recipients = "rbarge@yopmail.com,naresh@cashflowsolutions.in,sushil@cashflowsolutions.in,amish@cashflowsolutions.in";
             
             // Redirect the user to their default email client
             const mailtoUrl = `mailto:${recipients}?subject=${subject}&body=${body}`;
