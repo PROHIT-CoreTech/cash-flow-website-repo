@@ -70,9 +70,11 @@ header {
 
 .logo img {
   width: auto;
-  height: 60px;
-  max-width: 180px;
+  height: 80px; /* Increased to fill the header */
+  max-width: none; /* Removed so it doesn't get artificially squished */
   object-fit: contain;
+  transform: scale(1.2); /* Slight visual bump to overcome internal padding */
+  transform-origin: left center; /* Keeps it anchored to the left */
 }
 
 @media (max-width: 768px) {
