@@ -79,9 +79,29 @@ header {
 }
 
 @media (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+    height: auto;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
   .logo img {
-    height: 30px; /* Mobile: height between 25px and 35px */
+    height: 40px; /* Mobile: height between 25px and 35px */
     max-width: 130px; /* Mobile: width up to 130px */
+    transform: none; /* remove desktop scale */
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    margin: 0 5px;
+    font-size: 14px;
   }
 }
 
