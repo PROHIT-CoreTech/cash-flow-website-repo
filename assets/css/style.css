@@ -46,6 +46,7 @@ header {
   height: 80px;
   display: flex;
   justify-content: flex-start;
+  gap: 4rem; /* Added gap between logo and nav */
   align-items: center;
   position: fixed;
   top: 0;
