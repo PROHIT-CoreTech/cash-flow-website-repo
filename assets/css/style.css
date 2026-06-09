@@ -64,6 +64,22 @@ header {
   font-weight: 800;
   color: var(--primary-blue);
   letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: auto;
+  height: 45px; /* Desktop: height between 30px and 50px */
+  max-width: 250px; /* Desktop: width up to 250px */
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 30px; /* Mobile: height between 25px and 35px */
+    max-width: 130px; /* Mobile: width up to 130px */
+  }
 }
 
 nav {
