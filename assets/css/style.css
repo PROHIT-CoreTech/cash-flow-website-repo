@@ -26,6 +26,11 @@
   --border-radius-lg: 12px;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Accounts for fixed header */
+}
+
 body {
   font-family: var(--font-main);
   background-color: var(--bg-page);
