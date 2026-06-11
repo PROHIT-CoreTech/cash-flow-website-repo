@@ -141,6 +141,49 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* Dropdown Navigation */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--border-radius-md);
+  z-index: 100;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  padding: 0.5rem 0;
+}
+.dropdown-content a {
+  color: var(--text-main);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  display: block;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.dropdown-content a::after {
+  display: none;
+}
+.dropdown-content a:hover {
+  background-color: #f1f5f9;
+  color: var(--primary-blue);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
 /* Main Content */
 main {
   max-width: 1200px;
@@ -235,6 +278,32 @@ h1, h2, h3, h4 {
 @media (min-width: 768px) {
   .grid-2 {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Service Row Layout */
+.service-row {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.service-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.service-content {
+  flex: 1;
+}
+
+.service-image {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .service-row, .service-row.reverse {
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 
