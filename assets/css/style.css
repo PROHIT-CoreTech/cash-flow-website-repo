@@ -987,14 +987,16 @@ footer {
 
 /* Partner Marquee */
 .partner-marquee-section {
+  padding: 4rem 0;
+  background-color: white;
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
 }
 .marquee-container {
   width: 100%;
   overflow: hidden;
   position: relative;
-  display: block; /* Removed flex so child can overflow naturally */
 }
 .marquee-container::before, .marquee-container::after {
   content: "";
@@ -1016,9 +1018,8 @@ footer {
 .marquee-content {
   display: flex;
   width: max-content;
-  flex-shrink: 0; /* CRITICAL: prevents logos from squishing into viewport */
+  animation: scroll 20s linear infinite;
   gap: 3rem;
-  padding: 0 10vw; /* Start with padding so the first logo comes into view */
   align-items: center;
 }
 .partner-logo {

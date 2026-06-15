@@ -71,40 +71,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initialize GSAP ScrollTrigger for Partner Marquee
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-
-        const scrollViewport = document.querySelector('#scroll-viewport');
-        const horizontalTrack = document.querySelector('#horizontal-track');
-
-        if (scrollViewport && horizontalTrack) {
-            function getScrollAmount() {
-                let trackWidth = horizontalTrack.scrollWidth;
-                let amount = trackWidth - window.innerWidth;
-                // Ensure we only scroll left, and don't scroll if content is smaller than screen
-                return amount > 0 ? -amount : 0; 
-            }
-
-            let tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: scrollViewport,
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: 1,
-                    invalidateOnRefresh: true
-                }
-            });
-
-            tl.to(horizontalTrack, {
-                x: () => getScrollAmount(),
-                ease: "none"
-            });
-
-            // Re-calculate after all fonts/images load
-            window.addEventListener('load', () => {
-                ScrollTrigger.refresh();
-            });
-        }
-    }
 });
