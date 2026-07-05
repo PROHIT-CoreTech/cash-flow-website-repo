@@ -572,7 +572,7 @@ footer {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 8rem 2rem 7rem 2rem; /* Extra padding at top for header, bottom for ticker */
+  padding: 8rem 2rem 4rem 2rem; /* Extra padding at top for header, bottom reduced */
   gap: 4rem;
 }
 
@@ -988,10 +988,25 @@ footer {
 /* Partner Marquee */
 .partner-marquee-section {
   padding: 4rem 0;
-  background-color: white;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
   overflow: hidden;
+}
+.partner-marquee-section .section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 0 2rem;
+}
+.partner-marquee-section .section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--dark-slate);
+  margin: 0 0 0.5rem 0;
+}
+.partner-marquee-section .section-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 .marquee-container {
   width: 100%;
@@ -1009,21 +1024,70 @@ footer {
 }
 .marquee-container::before {
   left: 0;
-  background: linear-gradient(to right, white 0%, transparent 100%);
+  background: linear-gradient(to right, #f8fafc 0%, transparent 100%);
 }
 .marquee-container::after {
   right: 0;
-  background: linear-gradient(to left, white 0%, transparent 100%);
+  background: linear-gradient(to left, #f8fafc 0%, transparent 100%);
+}
+@keyframes scrollRightToLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .marquee-content {
   display: flex;
   width: max-content;
-  animation: scroll 20s linear infinite;
-  gap: 3rem;
+  animation: scrollRightToLeft 30s linear infinite;
+  gap: 2rem;
   align-items: center;
+  padding: 1rem 0;
 }
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+.partner-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  min-width: 160px;
+  height: 90px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.partner-logo-card:hover {
+  box-shadow: 0 8px 20px rgba(2, 116, 190, 0.15);
+  border-color: var(--primary-blue);
+  transform: translateY(-3px);
+}
+.partner-logo-card img {
+  max-width: 130px;
+  max-height: 55px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.65);
+  transition: filter 0.3s ease;
+}
+.partner-logo-card:hover img {
+  filter: grayscale(0%) opacity(1);
+}
+.partner-logo-card .bank-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+/* Legacy text-only logo support */
 .partner-logo {
-  font-size: 2.5rem; /* Larger for ticker tape vibe */
+  font-size: 2.5rem;
   font-weight: 800;
   color: #64748b;
   text-transform: uppercase;

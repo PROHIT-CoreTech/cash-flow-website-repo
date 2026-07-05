@@ -8,6 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/images/website_icon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false, // Prevents Tailwind resets from disrupting the global navbar, logo, footer, and list styles
+            },
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#0274be',
+                        'primary-blue-hover': '#025a94',
+                        'dark-slate': '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <header class="animate-fade-in">
@@ -55,23 +73,44 @@
                 <!-- Enquiry Form Column -->
                 <div class="card" style="height: 100%;">
                     <h2 style="text-align: left; margin-bottom: 2rem; transform: none; left: 0;">Enquiry Form</h2>
-                    <form id="enquiryForm" class="contact-form">
+                    <form id="enquiryForm" class="space-y-4">
+                        <!-- Web3Forms Hidden Fields -->
                         <input type="hidden" name="access_key" value="2abf2edd-9dbd-4c2c-850b-c10a6858280d">
                         <input type="hidden" name="subject" value="New Website Enquiry from Cashflow Solutions">
                         <input type="hidden" name="from_name" value="Cashflow Solutions Website">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your Full Name">
+
+                        <div class="flex flex-col">
+                            <label for="name" class="text-sm font-semibold text-gray-700 mb-1" style="text-align: left;">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your Full Name" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition duration-200 text-base text-gray-800 bg-white" style="box-sizing: border-box;">
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="Your Email Address">
+                        <div class="flex flex-col">
+                            <label for="email" class="text-sm font-semibold text-gray-700 mb-1" style="text-align: left;">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="Your Email Address" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition duration-200 text-base text-gray-800 bg-white" style="box-sizing: border-box;">
                         </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                        <div class="flex flex-col">
+                            <label for="phone" class="text-sm font-semibold text-gray-700 mb-1" style="text-align: left;">Contact Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Your Phone Number (e.g. +91 98765 43210)" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition duration-200 text-base text-gray-800 bg-white" style="box-sizing: border-box;">
                         </div>
-                        <button type="submit" class="button" style="width: 100%;">Submit Enquiry</button>
+                        <div class="flex flex-col">
+                            <label for="message" class="text-sm font-semibold text-gray-700 mb-1" style="text-align: left;">Requirement Description / Message</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="How can we help you?" 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition duration-200 text-base text-gray-800 bg-white resize-y" style="box-sizing: border-box;"></textarea>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 mt-2">
+                            <button type="submit" id="submitEmailBtn" 
+                                    class="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 bg-[#0274be] hover:bg-[#025a94] text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0274be] border-0 cursor-pointer text-base">
+                                📨 Send via Email
+                            </button>
+                            <button type="button" id="submitWhatsAppBtn" 
+                                    class="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366] border-0 cursor-pointer text-base">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.907h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.594ZM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592Zm3.69-4.98c-.202-.1-.1.195-.582-.05-.48-.245-.81-.4-.979-.496-.17-.097-.29-.145-.415.043-.125.188-.485.611-.597.74-.109.127-.22.141-.42.041-.2-.1-.84-.31-1.601-.986-.59-.527-1-.18-.117-.306.08-.078.18-.212.22-.317.04-.1.02-.195-.01-.295-.03-.1-.3-.727-.415-.99-.112-.269-.24-.23-.33-.234-.085-.004-.183-.004-.282-.004a.5.5 0 0 0-.363.17c-.125.138-.477.467-.477 1.137 0 .67.487 1.317.556 1.409.07.09 1.053 1.61 2.548 2.241.356.15.633.24.85.31.358.115.683.099.939.061.285-.042.88-.36 1.003-.69.124-.33.124-.613.087-.67-.037-.058-.137-.097-.34-.197Z"/>
+                                </svg> Submit via WhatsApp
+                            </button>
+                        </div>
                         <div id="formResult" style="margin-top: 1rem; text-align: center; font-weight: 500;"></div>
                     </form>
                 </div>
@@ -88,6 +127,44 @@
             </div>
         </section>
     </main>
+
+    <!-- Trusted by Leading Financial Institutions -->
+    <section class="partner-marquee-section">
+        <div class="section-header">
+            <h2>Trusted by Leading Financial Institutions</h2>
+            <p>We work with India's top banks and NBFCs to deliver the best financial solutions</p>
+        </div>
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <div class="partner-logo-card"><img src="assets/bank-logo/State_Bank_of_Ind.svg" alt="State Bank of India"><span class="bank-label">SBI</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Bank_of_India.svg" alt="Bank of India"><span class="bank-label">Bank of India</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Indian bank.png" alt="Indian Bank"><span class="bank-label">Indian Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/union bank.jpeg" alt="Union Bank of India"><span class="bank-label">Union Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/ICICI_Bank.svg" alt="ICICI Bank"><span class="bank-label">ICICI Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Kotak_Mahindra.svg" alt="Kotak Mahindra Bank"><span class="bank-label">Kotak Mahindra</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Axis_Bank.svg" alt="Axis Bank"><span class="bank-label">Axis Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/yes bank.png" alt="Yes Bank"><span class="bank-label">Yes Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/HDFC_Bank.svg" alt="HDFC Bank"><span class="bank-label">HDFC Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Cholamandalam_Investment.svg" alt="Cholamandalam"><span class="bank-label">Chola</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Hero_FinCorp.svg" alt="Hero FinCorp"><span class="bank-label">Hero FinCorp</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/tata capital.jpeg" alt="TATA Capital"><span class="bank-label">TATA Capital</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Poonawalla_Fincorp.svg" alt="Poonawalla Fincorp"><span class="bank-label">Poonawalla</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/State_Bank_of_Ind.svg" alt="State Bank of India"><span class="bank-label">SBI</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Bank_of_India.svg" alt="Bank of India"><span class="bank-label">Bank of India</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Indian bank.png" alt="Indian Bank"><span class="bank-label">Indian Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/union bank.jpeg" alt="Union Bank of India"><span class="bank-label">Union Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/ICICI_Bank.svg" alt="ICICI Bank"><span class="bank-label">ICICI Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Kotak_Mahindra.svg" alt="Kotak Mahindra Bank"><span class="bank-label">Kotak Mahindra</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Axis_Bank.svg" alt="Axis Bank"><span class="bank-label">Axis Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/yes bank.png" alt="Yes Bank"><span class="bank-label">Yes Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/HDFC_Bank.svg" alt="HDFC Bank"><span class="bank-label">HDFC Bank</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Cholamandalam_Investment.svg" alt="Cholamandalam"><span class="bank-label">Chola</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Hero_FinCorp.svg" alt="Hero FinCorp"><span class="bank-label">Hero FinCorp</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/tata capital.jpeg" alt="TATA Capital"><span class="bank-label">TATA Capital</span></div>
+                <div class="partner-logo-card"><img src="assets/bank-logo/Poonawalla_Fincorp.svg" alt="Poonawalla Fincorp"><span class="bank-label">Poonawalla</span></div>
+            </div>
+        </div>
+    </section>
 
     <footer class="animate-fade-in">
         <div class="footer-container">
@@ -151,5 +228,64 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('enquiryForm');
+            const whatsappBtn = document.getElementById('submitWhatsAppBtn');
+            
+            if (form && whatsappBtn) {
+                whatsappBtn.addEventListener('click', function() {
+                    // Trigger browser native HTML5 validation
+                    if (!form.reportValidity()) {
+                        return; // Stop if form inputs are invalid
+                    }
+
+                    // CONFIGURABLE: Change this to your actual phone number with country code (omitting any "+", "-", or spaces)
+                    const ownerWhatsAppNumber = "919561042069"; 
+
+                    // Gather and trim all input values
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const message = document.getElementById('message').value.trim();
+
+                    // Construct plain-text message block
+                    const messageBlock = `*New Website Enquiry Received!*
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Message: ${message}`;
+
+                    // Safely convert multiline text block into a URL-safe string
+                    const encodedText = encodeURIComponent(messageBlock);
+
+                    // Assemble the link format
+                    const whatsappUrl = `https://wa.me/${ownerWhatsAppNumber}?text=${encodedText}`;
+
+                    // Visual feedback on the WhatsApp button
+                    const originalBtnContent = whatsappBtn.innerHTML;
+                    
+                    whatsappBtn.disabled = true;
+                    whatsappBtn.innerHTML = `
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" style="display: inline-block; animation: spin 1s linear infinite;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="20" height="20">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Redirecting to WhatsApp...
+                    `;
+
+                    // Execute window.open to trigger the WhatsApp client application
+                    window.open(whatsappUrl, '_blank');
+
+                    // Reset button and form after a brief delay
+                    setTimeout(() => {
+                        whatsappBtn.disabled = false;
+                        whatsappBtn.innerHTML = originalBtnContent;
+                        form.reset();
+                    }, 2000);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
