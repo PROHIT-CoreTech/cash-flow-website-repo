@@ -100,11 +100,13 @@ header {
 
 @media (max-width: 768px) {
   header {
-    padding: 10px 20px;
+    position: static !important; /* Remove fixed positioning on mobile to prevent overlapping content */
+    padding: 15px 20px;
     height: auto;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 1.2rem;
+    flex-direction: column; /* Stacks logo and nav links neatly on mobile */
+    align-items: center;
+    background: var(--bg-card); /* Solid background on mobile */
   }
   
   .logo {
@@ -727,7 +729,8 @@ footer {
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column;
-    padding-bottom: 8rem;
+    padding-top: 3rem !important; /* Reduced top padding since header is static */
+    padding-bottom: 4rem !important;
     text-align: center;
   }
   .hero-heading {
